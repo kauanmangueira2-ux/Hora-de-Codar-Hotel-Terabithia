@@ -1,5 +1,5 @@
-🏨 Hotel Terabithia — Plataforma Interna
-📌 Sobre
+## 🏨 Hotel Terabithia — Plataforma Interna
+# 📌 Sobre
 
 Este projeto foi desenvolvido como atividade acadêmica, com o objetivo de praticar conceitos de programação e organização de sistemas.
 
