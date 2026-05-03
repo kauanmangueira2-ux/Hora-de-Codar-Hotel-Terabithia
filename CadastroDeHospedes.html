@@ -1,0 +1,169 @@
+<html>
+	<head>
+		<script>
+			var lista_hospedes = [];
+			
+			function sistema_cadastrar_hospedes() {
+				var opcao = prompt("Cadastro de Hóspedes\n\n 1-Cadastrar \n 2-Pesquisar exato \n 3-Pesquisar prefixo \n 4-Listar \n 5-Atualizar \n 6-Remover \n 7-Sair");
+				if (opcao == '1') {
+					cadastrar_hospedes();
+				} else if (opcao == '2') {
+					pesquisar_exato();
+				} else if (opcao == '3') {
+					pesquisar_prefixo();
+				} else if (opcao == '4') {
+					listar_hospedes();
+				} else if (opcao == '5') {
+					atualizar_hospede();
+				} else if (opcao == '6') {
+					remover_hospede();
+				} else if (opcao == '7') {
+					// sair
+				} else {
+					erro_pesquisar_hospedes();
+				}
+			}
+			
+			function cadastrar_hospedes() {
+				if (lista_hospedes.length >= 15) {
+					alert("Máximo de cadastros atingido");
+					sistema_cadastrar_hospedes();
+					return;
+				}
+				var nome_hospede = prompt("Nome do hóspede:");
+				var duplicado = false;
+				for (var i = 0; i < lista_hospedes.length; i++) {
+					if (lista_hospedes[i].nome == nome_hospede) {
+						duplicado = true;
+					}
+				}
+				if (duplicado) {
+					alert("Hóspede já cadastrado");
+					sistema_cadastrar_hospedes();
+					return;
+				}
+				lista_hospedes.push({nome: nome_hospede, cadastro: new Date().toLocaleString('pt-BR')});
+				console.log(lista_hospedes);
+				alert("Operação realizada com sucesso");
+				sistema_cadastrar_hospedes();
+			}
+			
+			function pesquisar_exato() {
+				var busca = prompt("Nome do hóspede:");
+				var encontrado = false;
+				for (var i = 0; i < lista_hospedes.length; i++) {
+					if (lista_hospedes[i].nome == busca) {
+						encontrado = true;
+					}
+				}
+				if (encontrado) {
+					alert("Hóspede "+busca+" foi encontrado");
+				} else {
+					alert("Hóspede não encontrado");
+				}
+				sistema_cadastrar_hospedes();
+			}
+			
+			function pesquisar_prefixo() {
+				var prefixo = prompt("Prefixo:");
+				var resultado = "Resultados:\n";
+				var achou = false;
+				for (var i = 0; i < lista_hospedes.length; i++) {
+					if (lista_hospedes[i].nome.startsWith(prefixo)) {
+						resultado += "["+(i+1)+"] "+lista_hospedes[i].nome+"\n";
+						achou = true;
+					}
+				}
+				if (!achou) {
+					alert("Hóspede não encontrado");
+				} else {
+					alert(resultado);
+				}
+				sistema_cadastrar_hospedes();
+			}
+			
+			function listar_hospedes() {
+				if (lista_hospedes.length == 0) {
+					alert("Nenhum hóspede cadastrado");
+					sistema_cadastrar_hospedes();
+					return;
+				}
+				var ordenado = lista_hospedes.slice().sort(function(a, b) {
+					if (a.nome < b.nome) return -1;
+					if (a.nome > b.nome) return 1;
+					return 0;
+				});
+				var lista = "Hóspedes cadastrados:\n";
+				for (var i = 0; i < ordenado.length; i++) {
+					lista += "["+(i+1)+"] "+ordenado[i].nome+" - "+ordenado[i].cadastro+"\n";
+				}
+				alert(lista);
+				sistema_cadastrar_hospedes();
+			}
+			
+			function atualizar_hospede() {
+				if (lista_hospedes.length == 0) {
+					alert("Nenhum hóspede cadastrado");
+					sistema_cadastrar_hospedes();
+					return;
+				}
+				var lista = "Qual hóspede deseja atualizar?\n";
+				for (var i = 0; i < lista_hospedes.length; i++) {
+					lista += "["+(i+1)+"] "+lista_hospedes[i].nome+"\n";
+				}
+				var idx = Number(prompt(lista+"Índice:")) - 1;
+				if (idx < 0 || idx >= lista_hospedes.length) {
+					alert("Índice inválido");
+					sistema_cadastrar_hospedes();
+					return;
+				}
+				var novoNome = prompt("Novo nome:");
+				var duplicado = false;
+				for (var i = 0; i < lista_hospedes.length; i++) {
+					if (lista_hospedes[i].nome == novoNome) {
+						duplicado = true;
+					}
+				}
+				if (duplicado) {
+					alert("Hóspede já cadastrado");
+					sistema_cadastrar_hospedes();
+					return;
+				}
+				lista_hospedes[idx].nome = novoNome;
+				alert("Operação realizada com sucesso");
+				sistema_cadastrar_hospedes();
+			}
+			
+			function remover_hospede() {
+				if (lista_hospedes.length == 0) {
+					alert("Nenhum hóspede cadastrado");
+					sistema_cadastrar_hospedes();
+					return;
+				}
+				var lista = "Qual hóspede deseja remover?\n";
+				for (var i = 0; i < lista_hospedes.length; i++) {
+					lista += "["+(i+1)+"] "+lista_hospedes[i].nome+"\n";
+				}
+				var idx = Number(prompt(lista+"Índice:")) - 1;
+				if (idx < 0 || idx >= lista_hospedes.length) {
+					alert("Índice inválido");
+					sistema_cadastrar_hospedes();
+					return;
+				}
+				lista_hospedes.splice(idx, 1);
+				alert("Operação realizada com sucesso");
+				sistema_cadastrar_hospedes();
+			}
+			
+			function erro_pesquisar_hospedes() {
+				alert('Por favor, informe um número entre 1 e 7');
+				sistema_cadastrar_hospedes();
+			}
+			
+			sistema_cadastrar_hospedes();
+		
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
