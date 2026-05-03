@@ -1,35 +1,4 @@
-# 🏨 Hotel Terabithia — Plataforma Interna
+🏨 Sistema de Gestão de Hotel — Terabithia
 
-
-## 📌 Sobre
-
-Este projeto foi desenvolvido como atividade acadêmica, com o objetivo de praticar conceitos de programação e organização de sistemas.
-
-A aplicação simula uma plataforma interna de gestão de um hotel, utilizada por funcionários para realizar operações administrativas.
-
-
-##  Visão Geral
-
-O sistema simula um ambiente de gestão interna, centralizando diferentes áreas operacionais em um único fluxo de interação. A navegação ocorre por meio de menus, permitindo ao usuário acessar funcionalidades específicas conforme a necessidade.
-
-Entre as operações contempladas, destacam-se:
-
-- Controle de hóspedes
-- Gestão de reservas
-- Planejamento de eventos
-- Simulação de serviços internos
-- Geração de relatórios operacionais
-- Cadastro de Hóspedes
-
-## 🧩 Arquitetura
-
-O projeto foi estruturado seguindo o conceito de software modular, no qual cada funcionalidade é isolada em funções específicas. Essa abordagem permite:
-
-- Separação de responsabilidades
-- Reutilização de código
-- Facilidade de manutenção
-- Melhor legibilidade
-
-Cada módulo representa uma área do sistema, sendo acionado a partir de um menu principal que gerencia o fluxo da aplicação.
-
+Este projeto consiste no desenvolvimento de um sistema interno de gestão para um hotel fictício, criado como atividade prática do curso Hora de Codar, com o objetivo de aplicar conceitos de lógica de programação e modularização em um cenário próximo ao real. A aplicação foi construída em JavaScript e executada diretamente no navegador, utilizando interações via prompt, alert e confirm para simular o uso por colaboradores do hotel. O sistema centraliza diferentes áreas operacionais em um único fluxo, permitindo o gerenciamento de hóspedes (cadastro, busca, listagem, atualização e remoção), controle de reservas de quartos (incluindo disponibilidade, cálculo de diárias e taxas), organização de eventos (com definição de auditório, validação de horários e cálculo de custos), simulação de serviços internos como manutenção e abastecimento, além da geração de relatórios operacionais com informações como taxa de ocupação e receitas. A estrutura do código segue uma abordagem modular, onde cada funcionalidade é separada em funções independentes, facilitando a organização, leitura e manutenção, ao mesmo tempo em que reforça conceitos fundamentais como uso de estruturas condicionais, loops, manipulação de arrays e objetos, validação de dados e controle de fluxo. Embora o sistema não possua interface gráfica avançada nem persistência de dados, ele cumpre seu propósito educacional ao demonstrar de forma prática como estruturar e organizar um software funcional, servindo como base para evoluções futuras com integração de interface, banco de dados e arquitetura mais robusta.
 
